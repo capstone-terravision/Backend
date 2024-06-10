@@ -3,4 +3,5 @@ node_modules/
 dist/
 prisma/migrations
 ./credentials.json
-env_variables.yaml
+
+app.yaml

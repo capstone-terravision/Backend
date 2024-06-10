@@ -36,6 +36,9 @@ jobs:
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v2'
 
+      - name: Copy GCP_APP_YAML to app.yaml
+        run: echo "$GCP_APP_YAML" > app.yaml
+
       - name: Deploy to Google App Engine
         run: |
           gcloud app deploy app.yaml --quiet

@@ -11,7 +11,7 @@ automatic_scaling:
 env_variables:
   NODE_ENV: development
   PORT: 8080
-  DATABASE_URL: postgresql://postgres:717244@34.101.167.152:5432/dev
+  DATABASE_URL: postgresql://postgres:717244@34.101.167.152:5432/prod
   JWT_SECRET: 261f1e902169137d219559bdf9a4741eae50c982a15fae24dfd73e72cf5fd045
   JWT_ACCESS_EXPIRATION_MINUTES: 30
   JWT_REFRESH_EXPIRATION_DAYS: 30

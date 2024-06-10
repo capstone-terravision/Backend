@@ -222,7 +222,7 @@ router
   .post(auth('createPost'), upload.array('propertyImage'), postController.createProperty)
   .get(auth('getProperties'), postController.queryAllProperties);
 
-router.get('/search', auth('getUsers'), postController.searchProperties);
-router.get('/:id', postController.getPostById);
+router.get('/search', auth('getProperties'), postController.searchProperties);
+router.get('/:id', auth('getProperties'), postController.getPostById);
 
 export default router;

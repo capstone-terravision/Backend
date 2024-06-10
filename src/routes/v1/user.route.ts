@@ -13,54 +13,6 @@ router
   .post(auth('manageUsers'), validate(createUser), userController.createUser)
   .get(auth('getUsers'), userController.querAllUsers);
 
-/**
- * @swagger
- * /users/search:
- *   get:
- *     summary: Search for users
- *     tags: [Users]
- *     security:
- *       - bearerAuth: []
- *     parameters:
- *       - in: query
- *         name: q
- *         schema:
- *           type: string
- *         description: Search query
- *       - in: query
- *         name: limit
- *         schema:
- *           type: integer
- *           default: 10
- *         description: Maximum number of users
- *       - in: query
- *         name: page
- *         schema:
- *           type: integer
- *           default: 1
- *         description: Page number
- *     responses:
- *       "200":
- *         description: Successful retrieval of users
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 error:
- *                   type: boolean
- *                   example: false
- *                 message:
- *                   type: string
- *                   example: User retrieved successfully!
- *                 data:
- *                   type: array
- *                   items:
- *                     $ref: '#/components/schemas/User'
- *       "401":
- *         $ref: '#/components/responses/Unauthorized'
- */
-
 router.get('/search', auth('getUsers'), userController.searchUsers);
 
 router
@@ -232,6 +184,7 @@ export default router;
  *       "401":
  *         $ref: '#/components/responses/Unauthorized'
  */
+
 /**
  * @swagger
  * /users/{userId}:
@@ -432,7 +385,6 @@ export default router;
  *           example:
  *             code: 404
  *             message: Not Found
- *   schemas:
  *     Error:
  *       type: object
  *       properties:

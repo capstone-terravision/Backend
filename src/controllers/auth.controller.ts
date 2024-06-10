@@ -66,7 +66,6 @@ const googleOauth = catchAsync(async (req: Request, res: Response) => {
   let user = await getUserByEmail(data.email);
 
   if (!user) {
-    // Since this is OAuth, we don't have a password, so we use a placeholder
     const placeholderPassword = 'OAuthUserPlaceholderPassword';
     const reqBody = {
       name: data.name,
@@ -78,7 +77,13 @@ const googleOauth = catchAsync(async (req: Request, res: Response) => {
 
   const token = await tokenService.generateAuthTokens(user);
 
-  return res.status(200).json({ error: false, message: 'Login successful', token: token.access.token });
+  return res
+    .status(200)
+    .json({
+      error: false,
+      message: 'Login successful',
+      data: { access_token: token.access.token, refresh_token: token.refresh.token },
+    });
 });
 
 export { register, login, logout, refreshTokens, googleOauth };

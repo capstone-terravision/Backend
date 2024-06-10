@@ -3,5 +3,3 @@ node_modules/
 dist/
 prisma/migrations
 ./credentials.json
-
-app.yaml

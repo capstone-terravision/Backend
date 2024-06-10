@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Create .env file
+        run: echo "SECRET_KEY=${{ secrets.ENV_VARS }}" >> .env
+
       - name: Install dependencies
         run: npm install
 
@@ -35,9 +38,6 @@ jobs:
 
       - name: Set up Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v2'
-
-      - name: Copy GCP_APP_YAML to app.yaml
-        run: echo "$GCP_APP_YAML" > app.yaml
 
       - name: Deploy to Google App Engine
         run: |

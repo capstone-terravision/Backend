@@ -1,0 +1,34 @@
+runtime: nodejs20
+service: backend
+
+instance_class: F1
+automatic_scaling:
+  min_idle_instances: automatic
+  max_idle_instances: automatic
+  min_pending_latency: automatic
+  max_pending_latency: automatic
+
+env_variables:
+  NODE_ENV: development
+  PORT: 8080
+  DATABASE_URL: postgresql://postgres:717244@34.128.119.90:5432/dev
+  JWT_SECRET: 261f1e902169137d219559bdf9a4741eae50c982a15fae24dfd73e72cf5fd045
+  JWT_ACCESS_EXPIRATION_MINUTES: 30
+  JWT_REFRESH_EXPIRATION_DAYS: 30
+  JWT_RESET_PASSWORD_EXPIRATION_MINUTES: 10
+  JWT_VERIFY_EMAIL_EXPIRATION_MINUTES: 10
+  SMTP_HOST: smtp.example.com
+  SMTP_PORT: 587
+  SMTP_USERNAME: yourusername
+  SMTP_PASSWORD: yourpassword
+  EMAIL_FROM: your@example.com
+  PROD_URL: https://backend-dot-c241-ps263-capstone.et.r.appspot.com
+  DEV_URL: http://localhost:8080
+  CALLBACK_URL: auth/google/callback
+  SCOPE_USERINFO_EMAIL: https://www.googleapis.com/auth/userinfo.email
+  SCOPE_USERINFO_PROFILE: https://www.googleapis.com/auth/userinfo.profile
+  GOOGLE_CLIENT_ID: 37057157561-11s1rqfk3daa879h7jeih2oaa5sc30ib.apps.googleusercontent.com
+  GOOGLE_CLIENT_SECRET: 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
+  GOOGLE_CLOUD_ID: c241-ps263-capstone
+  GOOGLE_STORAGE_BUCKET: images-terravision
+  GOOGLE_KEYFILE: 'https://storage.cloud.google.com/service_account_key_terravision/credentials.json?authuser=2'
